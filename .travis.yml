@@ -1,0 +1,8 @@
+language: python
+python: 3.5
+install: pip install pre-commit 'pip>8'
+script: make test
+cache:
+    directories:
+        - $HOME/.cache/pip
+        - $HOME/.pre-commit
