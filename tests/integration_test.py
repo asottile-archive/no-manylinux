@@ -7,7 +7,9 @@ import pytest
 @pytest.fixture
 def venv(tmpdir):
     env = tmpdir.join('venv')
-    subprocess.check_call(('virtualenv', env.strpath, '-p', sys.executable))
+    subprocess.check_call((
+        sys.executable, '-m', 'virtualenv', env.strpath, '-p', sys.executable,
+    ))
     return env
 
 
