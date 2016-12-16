@@ -2,7 +2,6 @@
 *.py[co]
 .*.sw[a-z]
 .cache
-.tox
 /venv
 coverage-html
 dist
