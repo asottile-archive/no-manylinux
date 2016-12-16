@@ -1,6 +1,6 @@
 language: python
 python: 3.5
-install: pip install pre-commit 'pip>8'
+install: make venv
 script: make test
 cache:
     directories:
