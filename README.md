@@ -3,7 +3,7 @@
 no-manylinux1
 =============
 
-Install this package to disable manylinux1 wheels when dowloading from pip.
+Install this package to disable manylinux1 wheels when downloading from pip.
 
 ## Usage
 
