@@ -31,6 +31,6 @@ such, some may choose to ignore this standard.
 
 ## Links
 
-- http://stackoverflow.com/questions/37231799/exclude-manylinux-wheels-when-downloading-from-pip
+- https://stackoverflow.com/q/37231799/812183
 - https://github.com/pypa/pip/issues/3689
 - https://github.com/pypa/pip/issues/3689#issuecomment-219437150
