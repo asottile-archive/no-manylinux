@@ -1,17 +1,15 @@
-REBUILD_FLAG =
-
 .PHONY: all
 all: venv test
 
 venv: requirements-dev.txt
 	rm -rf venv
-	virtualenv venv -ppython3.5
+	virtualenv venv -ppython3.6
 	venv/bin/pip install -r $<
 
 .PHONY: test
 test: venv
 	venv/bin/pre-commit run --all-files
-	venv/bin/py.test tests
+	venv/bin/pytest tests
 
 .PHONY: clean
 clean:
