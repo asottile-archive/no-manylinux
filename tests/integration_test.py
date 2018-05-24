@@ -18,7 +18,7 @@ def _download_libsass(tmpdir, venv):
     subprocess.check_call((
         venv.join('bin/pip').strpath, 'download',
         '--dest', dest.strpath, '--no-deps',
-        'libsass==0.12.0',
+        'libsass==0.12.3',
     ))
     ret = dest.listdir()
     dest.remove()
@@ -27,13 +27,13 @@ def _download_libsass(tmpdir, venv):
 
 def test_normal(tmpdir, venv):
     ret = _download_libsass(tmpdir, venv)
-    assert ret == ['libsass-0.12.0-cp35-cp35m-manylinux1_x86_64.whl']
+    assert ret == ['libsass-0.12.3-cp36-cp36m-manylinux1_x86_64.whl']
 
 
 def test_with_no_manylinux_installed(tmpdir, venv):
     subprocess.check_call((venv.join('bin/pip').strpath, 'install', '.'))
     ret = _download_libsass(tmpdir, venv)
-    assert ret == ['libsass-0.12.0.tar.gz']
+    assert ret == ['libsass-0.12.3.tar.gz']
 
 
 def test_uninstall_restores_original_behaviour(tmpdir, venv):
