@@ -13,12 +13,17 @@ def venv(tmpdir):
     return env
 
 
-def _download_libsass(tmpdir, venv):
+@pytest.fixture
+def venv_installed(venv):
+    subprocess.check_call((venv.join('bin/pip').strpath, 'install', '.'))
+    return venv
+
+
+def _download_pkg(tmpdir, venv, pkg):
     dest = tmpdir.join('dest').ensure_dir()
     subprocess.check_call((
         venv.join('bin/pip').strpath, 'download',
-        '--dest', dest.strpath, '--no-deps',
-        'libsass==0.12.3',
+        '--dest', dest.strpath, '--no-deps', pkg,
     ))
     ret = dest.listdir()
     dest.remove()
@@ -26,18 +31,24 @@ def _download_libsass(tmpdir, venv):
 
 
 def test_normal(tmpdir, venv):
-    ret = _download_libsass(tmpdir, venv)
+    ret = _download_pkg(tmpdir, venv, 'libsass==0.12.3')
     assert ret == ['libsass-0.12.3-cp36-cp36m-manylinux1_x86_64.whl']
 
 
-def test_with_no_manylinux_installed(tmpdir, venv):
-    subprocess.check_call((venv.join('bin/pip').strpath, 'install', '.'))
-    ret = _download_libsass(tmpdir, venv)
+def test_with_no_manylinux_installed(tmpdir, venv_installed):
+    ret = _download_pkg(tmpdir, venv_installed, 'libsass==0.12.3')
     assert ret == ['libsass-0.12.3.tar.gz']
 
 
-def test_uninstall_restores_original_behaviour(tmpdir, venv):
-    pip = venv.join('bin/pip').strpath
-    subprocess.check_call((pip, 'install', '.'))
-    subprocess.check_call((pip, 'uninstall', '-y', 'no-manylinux1'))
-    test_normal(tmpdir, venv)
+def test_no_manylinux2010(tmpdir, venv_installed):
+    ret = _download_pkg(tmpdir, venv_installed, 'coincurve==12.0.0')
+    assert ret == ['coincurve-12.0.0.tar.gz']
+
+
+# TODO: test manylinux2014
+
+
+def test_uninstall_restores_original_behaviour(tmpdir, venv_installed):
+    pip = venv_installed.join('bin/pip').strpath
+    subprocess.check_call((pip, 'uninstall', '-y', 'no-manylinux'))
+    test_normal(tmpdir, venv_installed)
