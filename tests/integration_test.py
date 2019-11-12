@@ -31,8 +31,8 @@ def _download_pkg(tmpdir, venv, pkg):
 
 
 def test_normal(tmpdir, venv):
-    ret = _download_pkg(tmpdir, venv, 'libsass==0.12.3')
-    assert ret == ['libsass-0.12.3-cp36-cp36m-manylinux1_x86_64.whl']
+    pkg, = _download_pkg(tmpdir, venv, 'libsass==0.19.4')
+    assert 'manylinux1' in pkg
 
 
 def test_with_no_manylinux_installed(tmpdir, venv_installed):
