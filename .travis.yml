@@ -1,7 +1,0 @@
-language: python
-install: make venv
-script: make test
-cache:
-    directories:
-        - $HOME/.cache/pip
-        - $HOME/.cache/pre-commit

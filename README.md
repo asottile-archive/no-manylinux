@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/asottile/no-manylinux.svg?branch=master)](https://travis-ci.org/asottile/no-manylinux)
+[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.no-manylinux?branchName=master)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=48&branchName=master)
 
 no-manylinux
 ============
