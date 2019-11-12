@@ -16,6 +16,6 @@ jobs:
 - template: job--pre-commit.yml@asottile
 - template: job--python-tox.yml@asottile
   parameters:
-    toxenvs: [py27, py36, py37, py38]
+    toxenvs: [py36, py37, py38]
     os: linux
     coverage: false
