@@ -7,24 +7,20 @@ import pytest
 @pytest.fixture
 def venv(tmpdir):
     env = tmpdir.join('venv')
-    subprocess.check_call((
-        sys.executable, '-m', 'virtualenv', env.strpath, '-p', sys.executable,
-    ))
+    subprocess.check_call((sys.executable, '-mvirtualenv', env))
     return env
 
 
 @pytest.fixture
 def venv_installed(venv):
-    subprocess.check_call((venv.join('bin/pip').strpath, 'install', '.'))
+    subprocess.check_call((venv.join('bin/pip'), 'install', '.'))
     return venv
 
 
 def _download_pkg(tmpdir, venv, pkg):
     dest = tmpdir.join('dest').ensure_dir()
-    subprocess.check_call((
-        venv.join('bin/pip').strpath, 'download',
-        '--dest', dest.strpath, '--no-deps', pkg,
-    ))
+    pip = venv.join('bin/pip')
+    subprocess.check_call((pip, 'download', '--dest', dest, '--no-deps', pkg))
     ret = dest.listdir()
     dest.remove()
     return [x.basename for x in ret]
@@ -49,6 +45,6 @@ def test_no_manylinux2010(tmpdir, venv_installed):
 
 
 def test_uninstall_restores_original_behaviour(tmpdir, venv_installed):
-    pip = venv_installed.join('bin/pip').strpath
+    pip = venv_installed.join('bin/pip')
     subprocess.check_call((pip, 'uninstall', '-y', 'no-manylinux'))
     test_normal(tmpdir, venv_installed)
