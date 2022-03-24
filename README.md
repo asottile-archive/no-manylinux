@@ -1,5 +1,5 @@
-[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.no-manylinux?branchName=master)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=48&branchName=master)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/no-manylinux/master.svg)](https://results.pre-commit.ci/latest/github/asottile/no-manylinux/master)
+[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.no-manylinux?branchName=main)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=48&branchName=main)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/no-manylinux/main.svg)](https://results.pre-commit.ci/latest/github/asottile/no-manylinux/main)
 
 no-manylinux
 ============
