@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/asottile/asottile/_apis/build/status/asottile.no-manylinux?branchName=main)](https://dev.azure.com/asottile/asottile/_build/latest?definitionId=48&branchName=main)
+[![build status](https://github.com/asottile/no-manylinux/actions/workflows/main.yml/badge.svg)](https://github.com/asottile/no-manylinux/actions/workflows/main.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/no-manylinux/main.svg)](https://results.pre-commit.ci/latest/github/asottile/no-manylinux/main)
 
 no-manylinux
