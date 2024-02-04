@@ -1,3 +1,9 @@
+# ARCHIVED
+
+it is feature complete and I don't plan on updating it further
+
+___
+
 [![build status](https://github.com/asottile/no-manylinux/actions/workflows/main.yml/badge.svg)](https://github.com/asottile/no-manylinux/actions/workflows/main.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/asottile/no-manylinux/main.svg)](https://results.pre-commit.ci/latest/github/asottile/no-manylinux/main)
 
